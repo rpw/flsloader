@@ -1,5 +1,9 @@
-flsloader
-=========
+   / ____/ /  / ___/   / /___  ____ _____/ /__  _____
+  / /_  / /   \__ \   / / __ \/ __ `/ __  / _ \/ ___/
+ / __/ / /______/ /  / / /_/ / /_/ / /_/ /  __/ /    
+/_/   /_____/____/  /_/\____/\__,_/\__,_/\___/_/     
+=====================================================
+
 
 IDA Pro loader module for IFX iPhone baseband firmwares.
 Based on a universal scatter loader script by roxfan.
@@ -12,5 +16,9 @@ Supports loading of:
 * iPhone 4   (X-Gold 61x)
 
 baseband firmwares into IDA Pro.
+
+Faster, harder, stronger: Use the IDAPython script make_table.py to identify
+the table of tasks used by the OS initialization routine. This will make your
+life much easier.
 
 Tested with IDA Pro Advanced 6.1 & 6.2.
