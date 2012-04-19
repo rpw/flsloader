@@ -4,15 +4,17 @@ from idc import *
 
 # Rough outline of heuristic to find table of tasks started by OS init routine:
 # 1) find string "tic:1" in memory
-# 2) if it occurs in more than one location (i4) take location that is
-     higher in memory
+# 2) if it occurs in more than one address (e.g. iPhone4 basebands) use higher
+#    address.
 # 3) find references to "tic:1" string (in same segment)
 # 4) apply taskdef_t struct to this memory location
 # 5) if dword right before taskdef_t struct is small number (< 0x100),
-     go back one dword
+#    go back one dword
 # 6) go back -sizeof(taskdef_t) bytes in memory
-# 7) check whether name_ptr points to something ASCII not containing the string 
-     "HISR" [XXX: HISRs are not filtered ATM!]
+# 7) check whether name_ptr points to something resembling an ASCII string
+#    but not containing "HISR" as a substring.
+#    [XXX: HISRs are not filtered yet, HISR creation routine uses slightly
+#          different structure!]
 # 8) if so, apply taskdef_t again
 # 9) go forward with same strategy
 
